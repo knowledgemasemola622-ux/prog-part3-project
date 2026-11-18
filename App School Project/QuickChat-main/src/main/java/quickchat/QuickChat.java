@@ -263,8 +263,29 @@ public class QuickChat {
 
                 case "2":
 
-                    System.out.println("Coming Soon.");
-                    break;
+                    
+
+
+    System.out.println("\n========== RECENTLY SENT MESSAGES ==========");
+
+    boolean foundMessages = false;
+
+    for (String message : manager.getSentMessages()) {
+
+        if (message != null && !message.isEmpty()) {
+
+            System.out.println("Message: " + message);
+            System.out.println("--------------------------------");
+            foundMessages = true;
+        }
+    }
+
+    if (!foundMessages) {
+        System.out.println("No recently sent messages found.");
+    }
+
+    break;
+
 
                 case "3":
 
