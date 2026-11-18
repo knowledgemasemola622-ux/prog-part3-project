@@ -173,6 +173,32 @@ public class MessageManager {
                 : longest;
     }
 
+    // Display all details of the longest stored message.
+    public String getLongestStoredMessageDetails() {
+        int longestIndex = -1;
+        int longestLength = -1;
+
+        for (int i = 0; i < storedMessages.size(); i++) {
+            String message = storedMessages.get(i);
+
+            if (message != null && !message.isEmpty()
+                    && message.length() > longestLength) {
+                longestLength = message.length();
+                longestIndex = i;
+            }
+        }
+
+        if (longestIndex == -1) {
+            return "No stored messages found.";
+        }
+
+        return "Message ID: " + messageIDs.get(longestIndex)
+                + "\nMessage Hash: " + messageHashes.get(longestIndex)
+                + "\nSender: " + senders.get(longestIndex)
+                + "\nRecipient: " + recipients.get(longestIndex)
+                + "\nMessage: " + storedMessages.get(longestIndex);
+    }
+
     // Search for a message by its ID.
     public String searchMessageByID(String id) {
 
